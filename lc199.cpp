@@ -10,39 +10,77 @@
  * };
  */
 
-class Solution {
+class Solution
+{
 public:
-
-    vector<int> levelorder(TreeNode* root) {
+    vector<int> levelorder(TreeNode *root)
+    {
         vector<int> res;
-        queue<TreeNode*> q;
+        queue<TreeNode *> q;
 
-        if(!root) return res;
+        if (!root)
+            return res;
         q.push(root);
 
-        TreeNode* curr;
+        TreeNode *curr;
 
-        while(!q.empty())
+        while (!q.empty())
         {
             int n = q.size();
 
-            for(int i = 0;i < n;i++)
+            for (int i = 0; i < n; i++)
             {
-                curr = q.front(); q.pop();
+                curr = q.front();
+                q.pop();
 
-                if(curr->left) q.push(curr->left);
-                if(curr->right) q.push(curr->right);
+                if (curr->left)
+                    q.push(curr->left);
+                if (curr->right)
+                    q.push(curr->right);
             }
 
             res.push_back(curr->val);
         }
 
         return res;
-
     }
 
-
-    vector<int> rightSideView(TreeNode* root) {
+    vector<int> rightSideView(TreeNode *root)
+    {
         return levelorder(root);
+    }
+};
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+class Solution
+{
+public:
+    void helper(TreeNode *node, int d, vector<int> &res)
+    {
+        if (!node)
+            return;
+        if (d == res.size())
+            res.push_back(node->val);
+
+        helper(node->right, d + 1, res);
+        helper(node->left, d + 1, res);
+    }
+
+    vector<int> rightSideView(TreeNode *root)
+    {
+        vector<int> res;
+        helper(root, 0, res);
+        return res;
     }
 };
