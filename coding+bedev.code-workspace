@@ -5,6 +5,9 @@
 	},
 	{
 		"path": "../spotify_BE"
+	},
+	{
+		"path": "../grocery-app"
 	}
 ],
   "settings": {
