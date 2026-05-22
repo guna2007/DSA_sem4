@@ -28,12 +28,30 @@ const int INF = 1e9 + 7;
 const ll LINF = 1e18 + 7;
 const int MOD = 1e9 + 7; // Standard modulo value for CodeChef tasks
 
+bool check(char c)
+{
+    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
 // Logic for a single test case
 void solve()
 {
     // 1. Read Inputs
     int n;
     cin >> n;
+
+    string s;
+    cin >> s;
+
+    for(int i = 0;i <= n-4;i++)
+    {
+        if(check(s[i]) && check(s[i+1]) && check(s[i+2]) && check(s[i+3]))
+        {
+            cout << "Yes" << el;
+            return;
+        }
+    }
+    cout << "No" << el;
 }
 
 int main()

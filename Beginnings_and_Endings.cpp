@@ -28,12 +28,41 @@ const int INF = 1e9 + 7;
 const ll LINF = 1e18 + 7;
 const int MOD = 1e9 + 7; // Standard modulo value for CodeChef tasks
 
+int forward(vector<int> arr,int x,int n)
+{
+    for(int i = 0;i < n;i++)
+    {
+        if(x == arr[i]) return i;
+    }
+}
+
+int backward(vector<int> arr,int x,int n)
+{
+    for(int i = n-1;i >= 0;i--)
+    {
+        if(x == arr[i]) return n-1-i;
+    }
+}
 // Logic for a single test case
 void solve()
 {
     // 1. Read Inputs
     int n;
     cin >> n;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int mini = 1e9;
+    for(int i = 0;i < n;i++)
+    {
+        mini = min(forward(arr, arr[i], n) + backward(arr, arr[i], n), mini);
+    }
+    if(mini == n-1) mini = -1;
+    cout<<mini<<el;
 }
 
 int main()

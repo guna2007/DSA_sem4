@@ -32,8 +32,10 @@ const int MOD = 1e9 + 7; // Standard modulo value for CodeChef tasks
 void solve()
 {
     // 1. Read Inputs
-    int n;
-    cin >> n;
+    int n,m,k;
+    cin >> n >> m >> k;
+
+    
 }
 
 int main()
