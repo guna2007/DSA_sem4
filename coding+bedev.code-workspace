@@ -8,6 +8,9 @@
 	},
 	{
 		"path": "../chat-app"
+	},
+	{
+		"path": "../javacourse"
 	}
 ],
   "settings": {
